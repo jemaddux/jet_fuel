@@ -19,11 +19,49 @@ describe 'server.rb' do
         last_response.status.should eq 200
       end
 
-      it "should have JetFuel on page" do
+      it "has JetFuel on page" do
         visit '/'
         page.should have_content 'JetFuel'
       end
+
+      it "has shorten a link on a page" do
+        visit '/'
+        page.should have_content "Shorten"
+      end
+
+      it "has a login and password box" do
+        visit '/'
+        page.should have_content "Login"
+        find_field('username').value.should eq 'user@email.com'
+        find_field('password').value.should eq 'password'
+      end
+
+      it "redirects to a shortened link page when shorten button is clicked" do
+        pending
+      end
+
+      it "redirects to a user page when login is clicked" do
+        pending
+      end
+
+      it "has a join now button" do
+        pending
+      end
+
+      it "redirects to join page whe joing now button is clicked" do
+        pending
+      end
     end
+
+    context "gets /jf/shorten" do
+      
+    end
+
+    context "post /jf/login" do
+
+    end
+
+
   end
 end
 
