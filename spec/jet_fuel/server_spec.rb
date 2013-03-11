@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'server.rb' do
-  #include Rack::Test::Methods
+  include Rack::Test::Methods
 
   def app
     JetFuel::Server
@@ -12,9 +12,10 @@ describe 'server.rb' do
   end
 
   describe "Server class" do
-    context "nothing" do
-      it "nothing" do
-        pending
+    context "gets /" do
+      it "returns 200" do
+        get "/"
+        last_response.status.should eq 200
       end
     end
   end
