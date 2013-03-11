@@ -2,8 +2,10 @@ require 'sinatra'
 
 module JetFuel
   class Server < Sinatra::Base
+    set :views, './views'
+
     get "/" do
-      "Hello World."
+      erb :index
     end
 
   end
