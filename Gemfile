@@ -4,10 +4,13 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'sinatra'
+gem "sinatra-activerecord"
+gem "sqlite3"
+gem "rake" 
 gem 'slim'
 gem 'shotgun'
 gem 'guard-rspec'
-gem 'rspec' 
+gem 'rspec'
 gem 'rack-test'
 gem 'test-unit'
 gem 'capybara', '~> 2.0'

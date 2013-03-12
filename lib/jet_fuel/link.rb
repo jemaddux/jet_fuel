@@ -1,9 +1,14 @@
+require "sinatra/activerecord"
+require "active_record"
+
 module JetFuel
-  class Link
+  class Link < ActiveRecord::Base
+    
+
     def self.shorten(url)
-      length = 1
-      #(0..1).map{ ('a'..'z').to_a[rand(26)] }.join
-      "jetfuel.herokuapp.com/jf/#{generate_relative_link(10)}"
+      relative_link = generate_relative_link(10)
+      link = "jetfuel.herokuapp.com/jf/#{relative_link}"
+      link
     end
 
     def self.generate_relative_link(length)
