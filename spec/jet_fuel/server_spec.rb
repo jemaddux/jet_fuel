@@ -37,7 +37,17 @@ describe 'server.rb' do
       end
 
       it "redirects to a shortened link page when shorten button is clicked" do
-        pending
+        visit "/"
+        fill_in :url, :with => "http://google.com"
+        click_button 'shorten_button'
+        page.should have_content 'Your shortened link:'
+      end
+
+      it "has a shortened link on the page when shorten link is clicked" do
+        visit "/"
+        fill_in :url, :with => "http://google.com"
+        click_button 'shorten_button'
+        page.should have_content 'jetfuel.herokuapp.com'
       end
 
       it "redirects to a user page when login is clicked" do
@@ -53,11 +63,22 @@ describe 'server.rb' do
       end
     end
 
-    context "gets /jf/shorten" do
+    context "gets /jf/:super_short_url" do
+      it "redirects to the original url" do
+        pending
+        visit "/"
+        fill_in :url, :with => "http://google.com"
+        click_button 'shorten_button'
+        link = @link
+        link.url.should eq "http://google.com"
+      end 
+    end
+
+    context "gets /shorten" do
       
     end
 
-    context "post /jf/login" do
+    context "post /login" do
 
     end
 

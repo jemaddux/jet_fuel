@@ -6,25 +6,27 @@ module JetFuel
     validates_presence_of :full_url, :short_url, :relative_short_url, :user_id
 
     def self.shorten(url)
-      if unique_url?
-        link = make_link(url) 
+      if url_exist?(url)
+        link = Link.find_by_full_url(url)
       else
-        link = Link.find(:full_url => url)
+        link = make_link(url) 
       end
-      link.short_url
+      link
     end
 
-    def self.unique_url?
-      true
+    def self.url_exist?(url)
+      Link.where(full_url: url).count > 0
     end
 
     def self.make_link(url)
       relative_link = generate_relative_link(10)
-      Link.create(
-        full_url: url,
-        short_url: "jetfuel.herokuapp.com/jf/#{relative_link}",
-        relative_short_url: relative_link
-      )
+      link = Link.create(:full_url => url, 
+        :short_url => "jetfuel.herokuapp.com/jf/#{relative_link}", 
+        :relative_short_url => relative_link, 
+        :user_id => rand(0..99999),
+        :created_at => Time.now,
+        :updated_at => Time.now
+        )
     end
 
     def self.generate_relative_link(length)
