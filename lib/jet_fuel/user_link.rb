@@ -6,7 +6,7 @@ module JetFuel
     validates_presence_of :full_url, :short_url, :relative_short_url, :user_id
     belongs_to :user
 
-    def self.create_user_link(url,vanity)
+    def self.create_user_link(url,vanity,user_id)
       relative_link = generate_relative_link(10)
       user_link = UserLink.create(:full_url => url, 
         :short_url => "jetfuel.herokuapp.com/jf/#{vanity}/#{relative_link}", 
@@ -14,7 +14,7 @@ module JetFuel
         :vanity => vanity,
         :created_at => Time.now,
         :visits_count => 0,
-        :user_id => rand(0..9999),
+        :user_id => user_id,
         :updated_at => Time.now
         )
     end
@@ -35,13 +35,13 @@ module JetFuel
       (0..(length-1)).map{ x[rand(x.length)] }.join
     end
 
-    def self.shorten(url,vanity)
-      if url_exist?(url)
-        user_link = UserLink.find_by_full_url(url)
-      else
-        user_link = create_user_link(url,vanity) 
-      end
-      user_link
+    def self.shorten(url,vanity,user_id)
+      #if url_exist?(url)
+       # user_link = UserLink.find_by_full_url(url)
+      #else
+        user_link = create_user_link(url,vanity,user_id) 
+      #end
+      #user_link
     end
 
     def self.url_exist?(url)

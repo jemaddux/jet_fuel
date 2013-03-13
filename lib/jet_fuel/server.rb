@@ -17,14 +17,14 @@ module JetFuel
 
     post "/join" do
       User.create_user(params["username"], params["password"])
-      redirect "/user"
+      redirect "/user/#{params["username"]}"
     end
 
     post "/login" do
       if User.login_allowed?(params[:username],params[:password])
         begin
           user = User.find_by_name(params[:username])        
-          redirect "/user/#{user.name}"
+          redirect "/user/#{params[:username]}"
         rescue
           redirect '/'
         end
@@ -35,8 +35,15 @@ module JetFuel
 
     get "/user" do
       @user = User.find_by_name("guest")
+      @user_links = UserLink.find_all_by_user_id(@user.id)
       erb :user
     end
+
+    get "/user/:username" do
+      @user = User.find_by_name(params[:username])
+      @user_links = UserLink.find_all_by_user_id(@user.id)
+      erb :user
+    end    
 
     get "/jf/:redirect" do
       link = Link.get_redirect(params[:redirect])
@@ -62,8 +69,9 @@ module JetFuel
       redirect "/shorten/#{relative_short_url}"
     end
 
-    post '/user_shorten' do
-      user_link = UserLink.shorten(params["url"], params["vanity"])
+    post '/user_shorten/:username' do
+      user = User.find_by_name(params[:username])
+      user_link = UserLink.shorten(params["url"], params["vanity"],user.id)
       relative_short_url = user_link.relative_short_url
       redirect "/shorten/#{relative_short_url}"
     end

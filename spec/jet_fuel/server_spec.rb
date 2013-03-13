@@ -32,8 +32,6 @@ describe 'server.rb' do
       it "has a login and password box" do
         visit '/'
         page.should have_content "Login"
-        find_field('username').value.should eq 'user@email.com'
-        find_field('password').value.should eq 'password'
       end
 
       it "redirects to a shortened link page when shorten button is clicked" do
@@ -50,35 +48,13 @@ describe 'server.rb' do
         page.should have_content 'jetfuel.herokuapp.com'
       end
 
-      it "redirects to a user page when login is clicked if valid login" do
-        pending
-      end
-
       it "has a join now button which redirects to joing page" do
         visit "/"
         click_button 'join_button'
         page.should have_content 'Join Now'
       end
     end
-
-    context "gets /jf/:super_short_url" do
-      it "redirects to the original url" do
-        pending #because capybara won't follow the redirect off my site
-        #but it does work
-        visit "/jf/i91j8LQKLA"
-        page.should have_content "I'm feeling lucky"
-      end 
-    end
-
-    context "gets /shorten" do
-      
-    end
-
-    context "post /login" do
-
-    end
-
-
+    
   end
 end
 
