@@ -8,13 +8,13 @@
     }
     .top{
       width: 100%;
-      background-color: lightgray;
+      background-color: orange;
       margin-top: 0px;
       padding: 15px;
-      border-bottom: 7px solid green;
+      border-bottom: 0px solid black;
     }
     .top_stuff{
-      color: green;
+      color: black;
       font-family: serif;
       display: inline;
       margin: 0px;
@@ -35,7 +35,7 @@
       padding: 0px;
     }
     h1 a{
-      color: green;
+      color: black;
       font-family: serif;
       font-size: 120%;
     }
@@ -44,6 +44,8 @@
       margin: auto;
     }
   </style>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+  </script>
 </head>
 <body>
   <div class="top">
@@ -77,4 +79,14 @@
   </div>
 
 </body>
+<script type="text/javascript">
+  $(document).ready(function() {
+      var randClr = '#'+Math.floor(Math.random()*16777215).toString(16);
+      $('.top').css("background-color", randClr);
+      $('.top').click(function(){
+        var randClr = '#'+Math.floor(Math.random()*16777215).toString(16);
+      $('.top').css("background-color", randClr);
+      });
+  });
+</script>
 </html>

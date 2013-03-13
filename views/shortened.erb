@@ -1,20 +1,74 @@
 <!DOCTYPE HTML>
 <html>
 <head><title>JetFuel - Shortened Link</title>
-  <style type="text/css">
-    #shorten_button{
-      color: blue;
+  <style>
+    body{
+      padding: 0px;
+      margin: 0px;
+    }
+    .top{
+      width: 100%;
+      background-color: orange;
+      margin-top: 0px;
+      padding: 15px;
+      border-bottom: 0px solid black;
+    }
+    .top_stuff{
+      color: black;
+      font-family: serif;
+      display: inline;
+      margin: 0px;
+      padding: 4px;
+      position: absolute;
+      top: 20px;
+      right: 10px;
+      width: 500px;
+    }
+    .top_stuff label{
+      font-size: 120%;
+    }
+    .top_stuff input{
+      width: 100px;
+    }
+    h1{
+      margin: 0px;
+      padding: 0px;
+    }
+    h1 a{
+      color: black;
+      font-family: serif;
+      font-size: 120%;
+    }
+    #main{
+      width: 80%;
+      margin: auto;
     }
   </style>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+  </script>
 </head>
 <body>
-  <h1><a href="http://jetfuel.herokuapp.com">JetFuel</a></h1>
+  <div class="top">
+    <h1><a href="http://jetfuel.herokuapp.com">JetFuel</a></h1>
+  </div>
 
-  <h2>Your shortened link:</h2>
-  <h3><%= @link[:full_url] %>
-    has been shortened to 
-    <%= @link[:short_url] %>
-  </h3>
+  <div id="main">
+    <h2>Your shortened link:</h2>
+    <h3><%= @link[:full_url] %>
+      has been shortened to 
+      <%= @link[:short_url] %>
+    </h3>
+  </div>
 
 </body>
+<script type="text/javascript">
+  $(document).ready(function() {
+      var randClr = '#'+Math.floor(Math.random()*16777215).toString(16);
+      $('.top').css("background-color", randClr);
+      $('.top').click(function(){
+        var randClr = '#'+Math.floor(Math.random()*16777215).toString(16);
+      $('.top').css("background-color", randClr);
+      });
+  });
+</script>
 </html>

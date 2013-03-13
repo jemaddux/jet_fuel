@@ -1,20 +1,77 @@
 <!DOCTYPE HTML>
 <html>
 <head><title>JetFuel - Join</title>
-  
+  <style>
+    body{
+      padding: 0px;
+      margin: 0px;
+    }
+    .top{
+      width: 100%;
+      background-color: orange;
+      margin-top: 0px;
+      padding: 15px;
+      border-bottom: 0px solid black;
+    }
+    .top_stuff{
+      color: black;
+      font-family: serif;
+      display: inline;
+      margin: 0px;
+      padding: 4px;
+      position: absolute;
+      top: 20px;
+      right: 10px;
+      width: 500px;
+    }
+    .top_stuff label{
+      font-size: 120%;
+    }
+    .top_stuff input{
+      width: 100px;
+    }
+    h1{
+      margin: 0px;
+      padding: 0px;
+    }
+    h1 a{
+      color: black;
+      font-family: serif;
+      font-size: 120%;
+    }
+    #main{
+      width: 80%;
+      margin: auto;
+    }
+  </style>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+  </script>
 </head>
 <body>
-  <h1><a href="http://jetfuel.herokuapp.com">JetFuel</a></h1>
+  <div class="top">
+    <h1><a href="http://jetfuel.herokuapp.com">JetFuel</a></h1>
+  </div>
 
-  <h2>Join Now</h2>
-  <p>Create a username and password to join</p>
-  <form method="POST" action="/join">
-    <label>Username:</label>
-    <input type="text" name="username">
-    <label>Password:</label>
-    <input type="password" name="password">
-    <input type="submit" name="signup" value="Join Now">
-  </form>
-
+  <div id="main">
+    <h2>Join Now</h2>
+    <p>Create a username and password to join</p>
+    <form method="POST" action="/join">
+      <label>Username:</label>
+      <input type="text" name="username">
+      <label>Password:</label>
+      <input type="password" name="password">
+      <input type="submit" name="signup" value="Join Now">
+    </form>
+  </div>
 </body>
+<script type="text/javascript">
+  $(document).ready(function() {
+      var randClr = '#'+Math.floor(Math.random()*16777215).toString(16);
+      $('.top').css("background-color", randClr);
+      $('.top').click(function(){
+        var randClr = '#'+Math.floor(Math.random()*16777215).toString(16);
+      $('.top').css("background-color", randClr);
+      });
+  });
+</script>
 </html>
