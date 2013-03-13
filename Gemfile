@@ -5,7 +5,7 @@ gemspec
 
 gem 'sinatra'
 gem "sinatra-activerecord"
-gem "sqlite3"
+gem "sqlite3", '~> 1.3.7'
 gem "rake" 
 gem 'slim'
 gem 'shotgun'
