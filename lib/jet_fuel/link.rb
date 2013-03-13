@@ -31,7 +31,7 @@ module JetFuel
 
     def self.make_link(url)
       relative_link = generate_relative_link(10)
-      link = Link.create(:full_url => url, 
+      link = Link.create(:full_url => check_url(url), 
         :short_url => "jetfuel.herokuapp.com/jf/#{relative_link}", 
         :relative_short_url => relative_link, 
         :user_id => 0,
@@ -42,7 +42,7 @@ module JetFuel
     end
 
     def self.check_url(url)
-      ("http://" + url) unless (url[0..6] == "http://")
+      url = "http://#{url}" unless (url[0..3] == "http")
     end
 
     def self.generate_relative_link(length)
