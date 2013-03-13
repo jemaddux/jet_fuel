@@ -2,7 +2,7 @@ module JetFuel
   class Server < Sinatra::Base
     register Sinatra::ActiveRecordExtension
 
-    set :database, (ENV["HEROKU_POSTGRESQL_COBALT_URL"] || "sqlite3:///db/jet_fuel.sqlite3")
+    set :database, (ENV["DATABASE_URL"] || "sqlite3:///db/jet_fuel.sqlite3")
 
     set :views, './views'
 
