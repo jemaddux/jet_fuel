@@ -54,7 +54,35 @@ describe 'server.rb' do
         page.should have_content 'Join Now'
       end
     end
+
+    context "/user" do
+      it "has stuff" do
+        visit "/user"
+        page.should have_content "JetFuel"
+        page.should have_content "User"
+      end
+    end
+
+    context "post /user/:username" do
+      it "returns the user page" do
+        visit "/user/harry"
+        page.should have_content "harry"
+      end
+    end
     
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
 
