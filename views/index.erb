@@ -21,5 +21,12 @@
     <input type="submit" name="login" value="Login" />
   </form>
 
+  <h2>Top Links</h2>
+    <ul>
+    <% @top_links.each do |top_link| %>
+      <li><%= top_link.inspect.to_s %></li>
+    <% end %>
+    </ul>
+
 </body>
 </html>

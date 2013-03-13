@@ -18,6 +18,17 @@ module JetFuel
       Link.where(full_url: url).count > 0
     end
 
+    def self.get_redirect(redirect)
+      link = Link.find_by_relative_short_url(redirect)
+      begin
+        link.visits_count += 1
+        link.save
+      rescue
+
+      end
+      link
+    end
+
     def self.make_link(url)
       relative_link = generate_relative_link(10)
       link = Link.create(:full_url => url, 
@@ -25,6 +36,7 @@ module JetFuel
         :relative_short_url => relative_link, 
         :user_id => rand(0..99999),
         :created_at => Time.now,
+        :visits_count => 0,
         :updated_at => Time.now
         )
     end

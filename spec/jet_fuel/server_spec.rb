@@ -65,12 +65,10 @@ describe 'server.rb' do
 
     context "gets /jf/:super_short_url" do
       it "redirects to the original url" do
-        pending
-        visit "/"
-        fill_in :url, :with => "http://google.com"
-        click_button 'shorten_button'
-        link = @link
-        link.url.should eq "http://google.com"
+        pending #because capybara won't follow the redirect off my site
+        #but it does work
+        visit "/jf/i91j8LQKLA"
+        page.should have_content "I'm feeling lucky"
       end 
     end
 

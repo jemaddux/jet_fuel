@@ -7,7 +7,17 @@ module JetFuel
     set :views, './views'
 
     get "/" do
+      @top_links = Link.order("visits_count")
       erb :index
+    end
+
+    get "/jf/:redirect" do
+      link = Link.get_redirect(params[:redirect])
+      begin
+        redirect "#{link.full_url}"
+      rescue
+        "error, no url"
+      end
     end
 
     post '/shorten' do
