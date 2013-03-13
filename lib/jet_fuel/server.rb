@@ -7,7 +7,7 @@ module JetFuel
     set :views, './views'
 
     get "/" do
-      @top_links = Link.order("visits_count")
+      @top_links = Link.order("visits_count").reverse
       erb :index
     end
 

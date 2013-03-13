@@ -24,7 +24,7 @@
   <h2>Top Links</h2>
     <ul>
     <% @top_links.each do |top_link| %>
-      <li><%= top_link.inspect.to_s %></li>
+      <li><%= top_link.full_url %> has been visted <%= top_link.visits_count %> time via <%= top_link.short_url %></li>
     <% end %>
     </ul>
 
