@@ -20,7 +20,7 @@
       margin: 0px;
       padding: 4px;
       position: absolute;
-      top: 20px;
+      top: 18px;
       right: 10px;
       width: 500px;
     }
@@ -40,7 +40,32 @@
       font-size: 120%;
     }
     .main{
-      width: 80%;
+      width: 60%;
+      margin: auto;
+    }
+    .join{
+      width: 100px;
+      position: absolute;
+      top: 23px;
+      right: 7px;
+    }
+    .shorten_form{
+      width: 200px;
+      margin: auto;
+    }
+    h2{
+      padding: 0px;
+      padding-top: 20px;
+      padding-bottom: 9px;
+      margin: auto;
+      font-size: 110%;
+    }
+    .shorten_button{
+      margin-top: 12px;
+    }
+    .table{
+      padding-top: 20px;
+      width: 550px;
       margin: auto;
     }
   </style>
@@ -61,25 +86,34 @@
   </div>
 
   <div class="main">
-    <form method="POST" action="/shorten"> <h2>Shorten your link:</h2>
-      <input type="text" name="url" />
-      <input type="submit" name="shorten" value="Shorten" id="shorten_button"/>
-    </form>
+    <div class="shorten_form">
+      <form method="POST" action="/shorten"> <h2>Insert link:</h2>
+        <input type="text" name="url" />
+        <input type="submit" name="shorten" value="Shorten" id="shorten_button" class="shorten_button"/>
+      </form>
+    </div>
 
-    <form method="GET" action="/join">
-      <input type="submit" id="join_button" value="Join JetFuel" />
-    </form>
+    <div class="join">
+      <form method="GET" action="/join" class="join">
+        <input type="submit" id="join_button" value="Join JetFuel" />
+      </form>
+    </div>
 
-    <h2>Top Links</h2>
-      <ul>
-      <% @top_links.each do |top_link| %>
-        <li><%= top_link.full_url %> has been visted 
-          <%= top_link.visits_count %> times via 
-          <a href="http://<%= top_link.short_url %>">
-          <%= top_link.short_url %></a>
-        </li>
-      <% end %>
-      </ul>
+    <div class="table">
+      <h2>Top Links</h2>
+        <table>
+        <% @top_links.each do |top_link| %>
+          <tr>
+            <td><%= top_link.full_url %></td>
+            <td>Viewed <%= top_link.visits_count %> times</td> 
+            <td>
+              Via: <a href="http://<%= top_link.short_url %>">
+              <%= top_link.short_url %></a>
+            </td>
+          </tr>
+        <% end %>
+        </table>
+    </div>
   </div>
 
 </body>
