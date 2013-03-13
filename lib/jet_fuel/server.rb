@@ -48,7 +48,7 @@ module JetFuel
     get "/jf/:redirect" do
       link = Link.get_redirect(params[:redirect])
       begin
-        redirect "#{Link.check_url(link.full_url)}"
+        redirect "#{link.full_url}"
       rescue
         "error, no url"
       end
@@ -57,7 +57,7 @@ module JetFuel
     get "/jf/:vanity/:redirect" do
       user_link = UserLink.get_redirect(params[:redirect])
       begin
-        redirect "#{Link.check_url(user_link.full_url)}"
+        redirect "#{user_link.full_url}"
       rescue
         "error, no url"
       end
