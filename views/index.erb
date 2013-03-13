@@ -1,36 +1,80 @@
 <!DOCTYPE HTML>
 <html>
 <head><title>JetFuel</title>
-  
+  <style>
+    body{
+      padding: 0px;
+      margin: 0px;
+    }
+    .top{
+      width: 100%;
+      background-color: lightgray;
+      margin-top: 0px;
+      padding: 15px;
+      border-bottom: 7px solid green;
+    }
+    .top_stuff{
+      color: green;
+      font-family: serif;
+      display: inline;
+      margin: 0px;
+      padding: 4px;
+      position: absolute;
+      top: 20px;
+      right: 10px;
+      width: 500px;
+    }
+    .top_stuff label{
+      font-size: 120%;
+    }
+    .top_stuff input{
+      width: 100px;
+    }
+    h1{
+      margin: 0px;
+      padding: 0px;
+    }
+    h1 a{
+      color: green;
+      font-family: serif;
+      font-size: 120%;
+    }
+    #main{
+      width: 80%;
+      margin: auto;
+    }
+  </style>
 </head>
 <body>
-  <h1><a href="http://jetfuel.herokuapp.com">JetFuel</a></h1>
+  <div class="top">
+    <h1><a href="http://jetfuel.herokuapp.com">JetFuel</a></h1>
 
-  <form method="POST" action="/shorten"> <h2>Shorten your link:</h2>
-    <input type="text" name="url" />
-    <input type="submit" name="shorten" value="Shorten" id="shorten_button"/>
-  </form>
+    <form method="POST" action="/login" class="top_stuff">
+      <label>Username:</label>
+      <input type="text" name="username" />
+      <label>Password:</label>
+      <input type="password" name="password" />
+      <input type="submit" name="login" value="Login" />
+    </form>
+  </div>
 
-  <form method="POST" action="/login"> <h2>Login:</h2>
-    <label>Username:</label>
-    <input type="text" name="username" />
-    <label>Password:</label>
-    <input type="password" name="password" />
-    <input type="submit" name="login" value="Login" />
-  </form>
+  <div id="main">
+    <form method="POST" action="/shorten"> <h2>Shorten your link:</h2>
+      <input type="text" name="url" />
+      <input type="submit" name="shorten" value="Shorten" id="shorten_button"/>
+    </form>
 
-  <br>
+    <form method="GET" action="/join">
+      <input type="submit" id="join_button" value="Join JetFuel" />
+    </form>
 
-  <form method="GET" action="/join">
-    <input type="submit" id="join_button" value="Join JetFuel" />
-  </form>
-
-  <h2>Top Links</h2>
-    <ul>
-    <% @top_links.each do |top_link| %>
-      <li><%= top_link.full_url %> has been visted <%= top_link.visits_count %> time via <%= top_link.short_url %></li>
-    <% end %>
-    </ul>
+    <h2>Top Links</h2>
+      <ul>
+      <% @top_links.each do |top_link| %>
+        <li><%= top_link.full_url %> has been visted <%= top_link.visits_count %> time via <%= top_link.short_url %></li>
+      <% end %>
+      </ul>
+  </div>
 
 </body>
 </html>
