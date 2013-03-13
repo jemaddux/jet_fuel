@@ -62,14 +62,22 @@
       <input type="submit" name="shorten" value="Shorten" id="shorten_button"/>
     </form>
 
-    <ul>
-      <% @user_links.each do |link|%>
-        <li><%= link.full_url %>
-          was shortened to 
-          <a href="http://<%= link.short_url %>"><%= link.short_url %></a>
-        </li>
-      <% end %>
-    </ul>
+    <div class="table">
+      <h2>User Links</h2>
+        <table>
+        <% @user_links.each do |user_link| %>
+          <tr>
+            <td><%= user_link.full_url %></td>
+            <td>Viewed <%= user_link.visits_count %> times</td> 
+            <td>
+              Via: <a href="http://<%= user_link.short_url %>">
+              <%= user_link.short_url %></a>
+            </td>
+          </tr>
+        <% end %>
+        </table>
+    </div>
+
   </div>
 
 </body>
