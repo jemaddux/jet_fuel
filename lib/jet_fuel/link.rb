@@ -42,7 +42,11 @@ module JetFuel
     end
 
     def self.check_url(url)
-      url = "http://#{url}" unless (url[0..3] == "http")
+      if (url[0..3] == "http")
+        url
+      else
+        url = "http://#{url}" 
+      end
     end
 
     def self.generate_relative_link(length)
