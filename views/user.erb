@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head><title>JetFuel - User</title>
+  
+</head>
+<body>
+  <h1>JetFuel</h1>
+
+  <h2>Hi User: <%= @user.name %></h2>
+
+  <form method="POST" action="/user_shorten"> <p>Shorten your link:</p>
+    <label>Url:</label>
+    <input type="text" name="url" />
+    <label>Vanity:</label>
+    <input type="text" name="vanity" />
+    <input type="submit" name="shorten" value="Shorten" id="shorten_button"/>
+  </form>
+
+</body>
+</html>

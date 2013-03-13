@@ -34,7 +34,7 @@ module JetFuel
       link = Link.create(:full_url => url, 
         :short_url => "jetfuel.herokuapp.com/jf/#{relative_link}", 
         :relative_short_url => relative_link, 
-        :user_id => rand(0..99999),
+        :user_id => 0,
         :created_at => Time.now,
         :visits_count => 0,
         :updated_at => Time.now

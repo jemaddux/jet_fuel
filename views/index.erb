@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head><title>JetFuel</title>
-  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  
 </head>
 <body>
   <h1>JetFuel</h1>
@@ -11,10 +11,16 @@
     <input type="submit" name="shorten" value="Shorten" id="shorten_button"/>
   </form>
 
-  <form method="" action=""> <p>Login:</p>
-    <input type="text" name="username" value="user@email.com" />
+  <form method="POST" action="/login"> <p>Login:</p>
+    <input type="text" name="username" value="username" />
     <input type="password" name="password" value="password"/>
     <input type="submit" name="login" value="Login" />
+  </form>
+
+  <br>
+
+  <form method="GET" action="/join">
+    <input type="submit" id="join_button" value="Join JetFuel" />
   </form>
 
   <h2>Top Links</h2>

@@ -50,16 +50,14 @@ describe 'server.rb' do
         page.should have_content 'jetfuel.herokuapp.com'
       end
 
-      it "redirects to a user page when login is clicked" do
+      it "redirects to a user page when login is clicked if valid login" do
         pending
       end
 
-      it "has a join now button" do
-        pending
-      end
-
-      it "redirects to join page whe joing now button is clicked" do
-        pending
+      it "has a join now button which redirects to joing page" do
+        visit "/"
+        click_button 'join_button'
+        page.should have_content 'Join Now'
       end
     end
 
