@@ -41,6 +41,10 @@ module JetFuel
         )
     end
 
+    def self.check_url(url)
+      ("http://" + url) unless (url[0..6] == "http://")
+    end
+
     def self.generate_relative_link(length)
       x ||= [('a'..'z'),('A'..'Z'),('0'..'9')].map{|i| i.to_a}.flatten
       (0..(length-1)).map{ x[rand(x.length)] }.join

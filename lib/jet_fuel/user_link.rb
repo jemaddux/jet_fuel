@@ -8,7 +8,7 @@ module JetFuel
 
     def self.create_user_link(url,vanity,user_id)
       relative_link = generate_relative_link(10)
-      user_link = UserLink.create(:full_url => url, 
+      user_link = UserLink.create(:full_url => check_url(url), 
         :short_url => "jetfuel.herokuapp.com/jf/#{vanity}/#{relative_link}", 
         :relative_short_url => relative_link, 
         :vanity => vanity,
@@ -19,6 +19,10 @@ module JetFuel
         )
     end
 
+    def self.check_url(url)
+      ("http://" + url) unless (url[0..6] == "http://")
+    end
+    
     def self.get_redirect(redirect)
       user_link = UserLink.find_by_relative_short_url(redirect)
       begin

@@ -39,7 +39,7 @@
       font-family: serif;
       font-size: 120%;
     }
-    #main{
+    .main{
       width: 80%;
       margin: auto;
     }
@@ -60,7 +60,7 @@
     </form>
   </div>
 
-  <div id="main">
+  <div class="main">
     <form method="POST" action="/shorten"> <h2>Shorten your link:</h2>
       <input type="text" name="url" />
       <input type="submit" name="shorten" value="Shorten" id="shorten_button"/>
@@ -74,9 +74,9 @@
       <ul>
       <% @top_links.each do |top_link| %>
         <li><%= top_link.full_url %> has been visted 
-          <%= top_link.visits_count %> time via 
-          <a href="http://<%= link.short_url %>">
-          <%= link.short_url %></a>
+          <%= top_link.visits_count %> times via 
+          <a href="http://<%= top_link.short_url %>">
+          <%= top_link.short_url %></a>
         </li>
       <% end %>
       </ul>
