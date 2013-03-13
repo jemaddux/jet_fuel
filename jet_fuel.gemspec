@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["jemaddux@gmail.com"]
   gem.description   = %q{Shortens links}
   gem.summary       = %q{Shortens links on the web.}
-  gem.homepage      = "jetfuel.herokuapp.com"
+  gem.homepage      = "http://jetfuel.herokuapp.com"
   gem.license       = "MIT"
 
   gem.files         = `git ls-files`.split($/)
