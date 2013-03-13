@@ -50,6 +50,7 @@ GEM
     multi_json (1.6.1)
     nokogiri (1.5.6)
     parallel (0.6.2)
+    pg (0.14.1)
     pry (0.9.12)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -121,6 +122,7 @@ DEPENDENCIES
   capybara (~> 2.0)
   guard-rspec
   jet_fuel!
+  pg
   rack-test
   rake
   rb-fsevent (~> 0.9)

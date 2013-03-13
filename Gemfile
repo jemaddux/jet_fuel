@@ -5,7 +5,7 @@ gemspec
 
 gem 'sinatra'
 gem "sinatra-activerecord"
-gem "sqlite3", '~> 1.3.7'
+gem "pg"
 gem "rake" 
 gem 'slim'
 gem 'shotgun'
@@ -19,3 +19,7 @@ gem 'rb-fsevent', '~> 0.9'
 gem 'cane'
 gem 'reek'
 gem 'rake'
+
+group :development do
+  gem "sqlite3", '~> 1.3.7'
+end
