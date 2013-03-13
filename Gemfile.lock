@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    jet_fuel (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -115,6 +120,7 @@ DEPENDENCIES
   cane
   capybara (~> 2.0)
   guard-rspec
+  jet_fuel!
   rack-test
   rake
   rb-fsevent (~> 0.9)
