@@ -13,6 +13,19 @@ describe 'server.rb' do
   end
 
   describe "Server class", :type => :feature do
+    context "post" do
+      # it "/join returns 500" do
+      #   post "/join", :params => {"username" => "username", "password" => "password"}
+      #   last_response.status.should eq 5000
+      # end
+
+      # it "/login returns 500" do
+      #   post "/join", :params => {"username" => "username", "password" => "password"}
+      #   post "/login", :params => {"username" => "username", "password" => "password"}
+      #   last_response.status.should eq 5000
+      # end
+    end
+
     context "gets /" do 
       it "returns 200" do
         get "/"
@@ -24,14 +37,9 @@ describe 'server.rb' do
         page.should have_content 'JetFuel'
       end
 
-      it "has shorten a link on a page" do
+      it "has a top links" do
         visit '/'
-        page.should have_content "Shorten"
-      end
-
-      it "has a login and password box" do
-        visit '/'
-        page.should have_content "Login"
+        page.should have_content "Top Links"
       end
 
       it "redirects to a shortened link page when shorten button is clicked" do

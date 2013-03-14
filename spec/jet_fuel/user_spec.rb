@@ -28,6 +28,45 @@ describe 'user.rb' do
       end
     end
 
+    context ".create_user" do
+      it "returns a new user" do
+        user = JetFuel::User.create_user("username","password")
+        user.name.should eq "username"
+      end
+    end
+
+    context ".login_allowed?" do
+      it "return true" do
+        user = JetFuel::User.create_user("username","password")
+        user.name.should eq "username"
+        x = JetFuel::User.login_allowed?("username","password")
+        x.should eq true
+      end
+    end
   end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

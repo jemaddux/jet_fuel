@@ -5,6 +5,8 @@ module JetFuel
     set :database, (ENV["DATABASE_URL"] || "sqlite3:///db/jet_fuel.sqlite3")
 
     set :views, './views'
+    #set :sessions, true
+    #set :session_secret, 'super_secret'
 
     get "/" do
       @top_links = Link.order("visits_count").reverse
@@ -24,6 +26,7 @@ module JetFuel
       if User.login_allowed?(params[:username],params[:password])
         begin
           user = User.find_by_name(params[:username])        
+          #sessions[:user] = user.id
           redirect "/user/#{params[:username]}"
         rescue
           redirect '/'
