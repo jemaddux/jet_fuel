@@ -1,6 +1,6 @@
 # JetFuel
 
-Live online at jetfuel.herokuapp.com
+Live online at <a href="http://jetfuel.herokuapp.com">jetfuel.herokuapp.com</a>
 
 ## Contributing
 
