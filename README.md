@@ -1,24 +1,6 @@
 # JetFuel
 
-TODO: Write a gem description
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'jet_fuel'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install jet_fuel
-
-## Usage
-
-TODO: Write usage instructions here
+Live online at jetfuel.herokuapp.com
 
 ## Contributing
 
